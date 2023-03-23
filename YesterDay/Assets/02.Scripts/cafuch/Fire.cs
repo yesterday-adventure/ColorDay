@@ -11,26 +11,24 @@ public class Fire : MonoBehaviour
     [SerializeField] private float fireDelay, chngeDelay;
     [SerializeField] private GameObject firePos, curBullet;
     private bool canFire = true;
+    int num = 0;
 
     void Awake()
     {
         bulletSwap = GetComponent<BulletSwap>();
-        curBullet = bullets[0]; //초기 색은 빨강으로 시작
+        curBullet = bullets[num]; //초기 색은 빨강으로 시작
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && canFire)
+        if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("눌럿음");
-            //BulletFire();
-            //StartCoroutine("BulletFire");
-            curBullet = bulletSwap._BulletType;
-            Instantiate(curBullet, firePos.transform.position, Quaternion.identity);
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
+            BulletFire();
+
+            curBullet = bullets[(int)bulletSwap._BulletType];
             
+            //curBullet = bulletSwap._BulletType;
         }
     }
 
@@ -38,16 +36,11 @@ public class Fire : MonoBehaviour
     {
         Instantiate(curBullet, firePos.transform.position, Quaternion.identity);
         canFire = false;
+        StartCoroutine("BulletFire");
     }
 
     IEnumerator Delay()
     {
-        //if (type == this.type)
-        //{
-
-
-        //}
-
         yield return new WaitForSeconds(fireDelay);
         canFire = true;
     }

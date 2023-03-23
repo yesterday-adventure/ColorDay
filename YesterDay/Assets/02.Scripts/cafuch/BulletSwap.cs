@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum BulletType
 {
-    Red,
+    Red = 0,
     Green,
     Blue
 };
@@ -25,10 +25,12 @@ public class BulletSwap : MonoBehaviour
     {
         if (chgeNext)
         {
+            if (curBulletType == BulletType.Blue) curBulletType = BulletType.Red;
             curBulletType = (BulletType)curBulletType + 1;
         }
         else
         {
+            if (curBulletType == BulletType.Red) curBulletType = BulletType.Blue;
             curBulletType = (BulletType)curBulletType - 1;
         }
     }

@@ -335,13 +335,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 618802692}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: 1.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 618778693}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
 --- !u!1 &668366656
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,9 +455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ae59983bb63524f9c994a8443b222a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redBullet: {fileID: 6287279833816464001, guid: 63f00a33d49170746a852a8c073b29ac, type: 3}
-  greenBullet: {fileID: 4636530810768567150, guid: bc610954632ca734fbe9d989e6982261, type: 3}
-  blueBullet: {fileID: 5249738698066589825, guid: 722752b8e5eefa542b5cd3264c7b3530, type: 3}
+  bullets:
+  - {fileID: 6287279833816464001, guid: 63f00a33d49170746a852a8c073b29ac, type: 3}
+  - {fileID: 4636530810768567150, guid: bc610954632ca734fbe9d989e6982261, type: 3}
+  - {fileID: 5249738698066589825, guid: 722752b8e5eefa542b5cd3264c7b3530, type: 3}
   fireDelay: 2
   chngeDelay: 0
   firePos: {fileID: 618802692}
@@ -470,7 +471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905433456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.4267845, y: -8.332466, z: -0.15012312}
+  m_LocalPosition: {x: -11.4267845, y: -8.7, z: -0.15012312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
