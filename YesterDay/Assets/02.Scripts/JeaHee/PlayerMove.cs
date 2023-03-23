@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
@@ -11,7 +12,8 @@ public class PlayerMove : MonoBehaviour
     private float jumpSpeed;  // 캐릭터 점프 힘.
     private float gravity;    // 캐릭터에게 작용하는 중력.
     private float rotateSpeed = 50f;
-
+    private float _dashTime = 0.3f;
+    private float _dashSpeed = 50f;
     private float mouseX = 0;
 
 
@@ -38,7 +40,31 @@ public class PlayerMove : MonoBehaviour
         //float h = Input.GetAxisRaw("Horizontal");
         //transform.rotation = Quaternion.Euler(0, h * Time.deltaTime * rotateSpeed, 0) * transform.rotation;
         // 현재 캐릭터가 땅에 있는가?
+        Debug.DrawRay(transform.position, transform.forward, Color.red);
+        Dash();
+        Move();
+    }
 
+    private void Dash()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartCoroutine(DashCoroutine());
+        }
+    }
+
+    private IEnumerator DashCoroutine()
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + _dashTime)
+        {
+            transform.Translate(transform.right * _dashSpeed * Time.deltaTime);
+            yield return null;
+        }
+    }
+
+    private void Move()
+    {
         transform.eulerAngles = new Vector3(0, _cam.transform.eulerAngles.y, 0);
         if (controller.isGrounded)
         {
