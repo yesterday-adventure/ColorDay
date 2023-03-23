@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    [SerializeField] private GameObject redBullet, greenBullet, blueBullet;
+    BulletSwap bulletSwap;
+
+    //[SerializeField] private GameObject redBullet, greenBullet, blueBullet;
+    [SerializeField] private List<GameObject> bullets;
     [SerializeField] private float fireDelay, chngeDelay;
     [SerializeField] private GameObject firePos, curBullet;
-    private string type;
     private bool canFire = true;
 
     void Awake()
     {
-        curBullet = redBullet; //초기 색은 빨강으로 시작
+        bulletSwap = GetComponent<BulletSwap>();
+        curBullet = bullets[0]; //초기 색은 빨강으로 시작
     }
 
     void Update()
@@ -20,8 +23,14 @@ public class Fire : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canFire)
         {
             Debug.Log("눌럿음");
-            BulletFire();
-            StartCoroutine("BulletFire");
+            //BulletFire();
+            //StartCoroutine("BulletFire");
+            curBullet = bulletSwap._BulletType;
+            Instantiate(curBullet, firePos.transform.position, Quaternion.identity);
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            
         }
     }
 

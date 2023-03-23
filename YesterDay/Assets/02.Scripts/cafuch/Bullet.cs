@@ -6,7 +6,8 @@ public class Bullet : MonoBehaviour
 {
     private Rigidbody rb;
 
-    [SerializeField] private float power = 150f;
+    [SerializeField] private float power = 10;
+    [SerializeField] private ForceMode formd;
 
     void Awake()
     {
@@ -15,6 +16,6 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(transform.forward * power); 
+        rb.AddForce(transform.forward * power, formd);
     }
 }
