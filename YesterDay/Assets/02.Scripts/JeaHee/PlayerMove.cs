@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     private float _dashSpeed = 50f;
     private float mouseX = 0;
 
+    private bool _canDash = true;
 
     private Camera _cam;
     private CharacterController controller; // 현재 캐릭터가 가지고있는 캐릭터 컨트롤러 콜라이더.
@@ -49,6 +50,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            _canDash = false;
             StartCoroutine(DashCoroutine());
         }
     }
@@ -58,9 +60,10 @@ public class PlayerMove : MonoBehaviour
         float startTime = Time.time;
         while (Time.time < startTime + _dashTime)
         {
-            transform.Translate(transform.right * _dashSpeed * Time.deltaTime);
+            transform.Translate(transform.forward * _dashSpeed * Time.deltaTime, Space.World);
             yield return null;
         }
+        _canDash = true;
     }
 
     private void Move()
