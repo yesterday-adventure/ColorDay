@@ -24,31 +24,28 @@ public class Fire : MonoBehaviour
         {
 
             Debug.Log("발사");
+            GameObject obj = Instantiate(curBullet, firePos.transform.position, Quaternion.identity);
+            MeshRenderer mesh = obj.GetComponent<MeshRenderer>();
             switch (bulletSwap.colorEnum) {
 
                 case ColorEnum.red : {
-
+                    mesh.material = ColorManager.instance.colorMaterials[1];
                 }
                 break;
                 case ColorEnum.yellow : {
-
+                    mesh.material = ColorManager.instance.colorMaterials[10];
                 }
                 break;
                 case ColorEnum.blue : {
+                    mesh.material = ColorManager.instance.colorMaterials[6];
 
                 }
                 break;
             }
             
-            BulletFire();
-        }
-    }
-
-    private void BulletFire()
-    {
-        Instantiate(curBullet, firePos.transform.position, Quaternion.identity);
         canFire = false;
         StartCoroutine(Delay());
+        }
     }
 
     IEnumerator Delay()
