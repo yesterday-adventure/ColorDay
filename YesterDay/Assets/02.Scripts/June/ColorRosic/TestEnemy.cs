@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class TestEnemy : ColorEnemy
 {
+    [SerializeField] GameObject colorSphere;
+    private void OnEnable()
+    {
+        Material f = colorSphere.GetComponent<Material>();
+        f.color = Color.red;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("PlayerBullet"))
