@@ -8,12 +8,12 @@ using UnityEngine.UIElements;
 public class PlayerMove : MonoBehaviour
 {
 
-    private float speed;      // 캐릭터 움직임 스피드.
-    private float jumpSpeed;  // 캐릭터 점프 힘.
-    private float gravity;    // 캐릭터에게 작용하는 중력.
-    private float rotateSpeed = 50f;
-    private float _dashTime = 0.2f;
-    private float _dashSpeed = 200f;
+    [SerializeField] private float speed;      // 캐릭터 움직임 스피드.
+    [SerializeField] private float jumpSpeed;  // 캐릭터 점프 힘.
+    [SerializeField] private float gravity;    // 캐릭터에게 작용하는 중력.
+    [SerializeField] private float rotateSpeed = 50f;
+    [SerializeField] private float _dashTime = 0.2f;
+    [SerializeField] private float _dashSpeed = 200f;
     private float mouseX = 0;
 
     private bool _canDash = true;
@@ -25,11 +25,6 @@ public class PlayerMove : MonoBehaviour
 
     void Awake()
     {
-        //Time.timeScale = 0.3f;
-        speed = 6.0f;
-        jumpSpeed = 8.0f;
-        gravity = 20.0f;
-
         MoveDir = Vector3.zero;
         controller = GetComponent<CharacterController>();
         _cam = Camera.main;
