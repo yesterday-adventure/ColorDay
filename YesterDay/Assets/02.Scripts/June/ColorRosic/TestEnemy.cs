@@ -6,10 +6,11 @@ using UnityEngine;
 public class TestEnemy : ColorEnemy
 {
     [SerializeField] GameObject colorSphere;
+    
     private void OnEnable()
     {
-        Material f = colorSphere.GetComponent<Material>();
-        f.color = Color.red;
+        MeshRenderer f = colorSphere.GetComponent<MeshRenderer>();
+        f.material = ColorManager.instance.colorMaterials[(int)dieColor];
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColorManager : MonoBehaviour
 {
     static public ColorManager instance;
-
+    public List<Material> colorMaterials;
     private void Awake()
     {
         if (instance != null)
