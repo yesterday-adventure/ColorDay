@@ -12,13 +12,10 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float jumpSpeed;  // 캐릭터 점프 힘.
     [SerializeField] private float gravity;    // 캐릭터에게 작용하는 중력.
     [SerializeField] private float rotateSpeed = 50f;
-    [SerializeField] private float _dashTime = 0.2f;
-    [SerializeField] private float _dashSpeed = 200f;
+
+    private float originSpeed;
+    private bool canDash = true;
     private float mouseX = 0;
-
-    private bool _canDash = true;
-    private bool _isDash = false;
-
     private Camera _cam;
     private CharacterController controller; // 현재 캐릭터가 가지고있는 캐릭터 컨트롤러 콜라이더.
     private Vector3 MoveDir;                // 캐릭터의 움직이는 방향.
@@ -28,6 +25,7 @@ public class PlayerMove : MonoBehaviour
         MoveDir = Vector3.zero;
         controller = GetComponent<CharacterController>();
         _cam = Camera.main;
+        originSpeed = speed;
     }
 
     void Update()
@@ -45,43 +43,35 @@ public class PlayerMove : MonoBehaviour
 
     private void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
         {
-            _canDash = false;
-            _isDash = true;
-            StartCoroutine(DashCoroutine());
+            canDash = false;
+            StartCoroutine(IncreaseSpeed());
         }
     }
 
-    private IEnumerator DashCoroutine()
+    private IEnumerator IncreaseSpeed()
     {
-        float startTime = Time.time;
-        while (Time.time < startTime + _dashTime)
-        {
-            transform.Translate(transform.forward * _dashSpeed * Time.deltaTime, Space.World);
-            yield return null;
-        }
-        _isDash = false;
+        speed += 5;
         yield return new WaitForSeconds(0.5f);
-        _canDash = true;
+        speed = originSpeed;
+        canDash = true;
     }
 
     private void Move()
     {
         transform.eulerAngles = new Vector3(0, _cam.transform.eulerAngles.y, 0);
 
-        if (_isDash == false)
+        if (controller.isGrounded)
         {
-            if (controller.isGrounded)
-            {
-                MoveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-                MoveDir = transform.TransformDirection(MoveDir);
-                MoveDir *= speed;
-                // 캐릭터 점프
-                if (Input.GetButton("Jump"))
-                    MoveDir.y = jumpSpeed;
-            }
+            MoveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            MoveDir = transform.TransformDirection(MoveDir);
+            MoveDir *= speed;
+            // 캐릭터 점프
+            if (Input.GetButton("Jump"))
+                MoveDir.y = jumpSpeed;
         }
+
 
         MoveDir.y -= gravity * Time.deltaTime; //중력 연산
 
