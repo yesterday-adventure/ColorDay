@@ -6,7 +6,7 @@ public class Fire : MonoBehaviour
 {
     BulletSwap bulletSwap;
 
-    [SerializeField] private List<Material> bulletColors = new List<Material>();
+    // [SerializeField] private List<Material> bulletColors = new List<Material>();
     [SerializeField] private float fireDelay, chngeDelay;
     [SerializeField] private GameObject firePos;
     [SerializeField] private GameObject curBullet;
@@ -24,11 +24,14 @@ public class Fire : MonoBehaviour
         {
 
             Debug.Log("발사");
+            Debug.Log(bulletSwap.colorEnum);
             GameObject obj = Instantiate(curBullet, firePos.transform.position, Quaternion.identity);
             MeshRenderer mesh = obj.GetComponent<MeshRenderer>();
+
             switch (bulletSwap.colorEnum) {
 
                 case ColorEnum.red : {
+                    Debug.Log("시댄 ㅠㅠ");
                     mesh.material = ColorManager.instance.colorMaterials[1];
                 }
                 break;

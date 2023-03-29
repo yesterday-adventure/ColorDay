@@ -611,11 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ae59983bb63524f9c994a8443b222a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletColors:
-  - {fileID: 2100000, guid: 9c6541c4bb411804ea61733602f345e4, type: 2}
-  - {fileID: 2100000, guid: 989f9f085827de94e87155fa9749fc10, type: 2}
-  - {fileID: 2100000, guid: 9cb813ef1a9f13e4586c60bbe68045e6, type: 2}
-  fireDelay: 2
+  fireDelay: 0.25
   chngeDelay: 0
   firePos: {fileID: 618802692}
   curBullet: {fileID: 6287279833816464001, guid: 63f00a33d49170746a852a8c073b29ac, type: 3}
