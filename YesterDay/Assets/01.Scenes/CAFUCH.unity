@@ -212,6 +212,7 @@ Transform:
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -259,6 +260,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -307,6 +309,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.24617767, y: 0.61077476, z: -13.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 618802693}
   m_Father: {fileID: 0}
@@ -338,6 +341,7 @@ Transform:
   m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: 1.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 618778693}
   m_RootOrder: 0
@@ -421,6 +425,7 @@ Transform:
   m_LocalRotation: {x: 0.2319014, y: -0, z: -0, w: 0.9727393}
   m_LocalPosition: {x: 0.26, y: 2.07, z: -14.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -455,14 +460,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ae59983bb63524f9c994a8443b222a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets:
-  - {fileID: 6287279833816464001, guid: 63f00a33d49170746a852a8c073b29ac, type: 3}
-  - {fileID: 4636530810768567150, guid: bc610954632ca734fbe9d989e6982261, type: 3}
-  - {fileID: 5249738698066589825, guid: 722752b8e5eefa542b5cd3264c7b3530, type: 3}
+  bulletColors:
+  - {fileID: 2100000, guid: 9c6541c4bb411804ea61733602f345e4, type: 2}
+  - {fileID: 2100000, guid: 989f9f085827de94e87155fa9749fc10, type: 2}
+  - {fileID: 2100000, guid: 9cb813ef1a9f13e4586c60bbe68045e6, type: 2}
   fireDelay: 2
   chngeDelay: 0
   firePos: {fileID: 618802692}
-  curBullet: {fileID: 0}
+  curBullet: {fileID: 6287279833816464001, guid: 63f00a33d49170746a852a8c073b29ac, type: 3}
 --- !u!4 &1905433458
 Transform:
   m_ObjectHideFlags: 0
@@ -473,6 +478,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.4267845, y: -8.7, z: -0.15012312}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -489,4 +495,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952d3a1c59fdcfe45a1bc7971c40cac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curBulletType: 0
+  idx: 9
+  colorEnum: 1
