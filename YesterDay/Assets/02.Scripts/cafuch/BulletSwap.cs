@@ -2,36 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BulletType
-{
-    Red = 0,
-    Green,
-    Blue
-};
-
 public class BulletSwap : MonoBehaviour
 {
-    [SerializeField] BulletType curBulletType = BulletType.Red;
+    //red = 1 2
+    //blue = 6 0 
+    //yellow = 10 1
 
-    public BulletType _BulletType { get { return curBulletType; } set { curBulletType = value; } }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E)) Swap(true);
-        else if (Input.GetKeyDown(KeyCode.Q)) Swap(false);
+    public int idx = 9;
+    public ColorEnum colorEnum = ColorEnum.red;
+    private void Update() {
+        
+        Swap();    
     }
 
-    private void Swap(bool chgeNext)
+    private void Swap()
     {
-        if (chgeNext)
+        if (Input.GetKeyDown(KeyCode.Q)) 
         {
-            if (curBulletType == BulletType.Blue) curBulletType = BulletType.Red;
-            curBulletType = (BulletType)curBulletType + 1;
+            idx++;
+            if(idx == 0)
+                idx = 9;
         }
-        else
+        else if (Input.GetKeyDown(KeyCode.E)) 
         {
-            if (curBulletType == BulletType.Red) curBulletType = BulletType.Blue;
-            curBulletType = (BulletType)curBulletType - 1;
+            idx--;
         }
+
+        if (idx % 3 == 0) colorEnum = ColorEnum.red;
+        else if (idx % 3 == 1) colorEnum = ColorEnum.yellow;
+        else colorEnum = ColorEnum.blue;
     }
+
+    //0 예외처리
 }

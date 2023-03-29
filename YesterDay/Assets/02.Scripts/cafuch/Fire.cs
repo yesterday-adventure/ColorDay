@@ -6,29 +6,41 @@ public class Fire : MonoBehaviour
 {
     BulletSwap bulletSwap;
 
-    //[SerializeField] private GameObject redBullet, greenBullet, blueBullet;
-    [SerializeField] private List<GameObject> bullets;
+    [SerializeField] private List<Material> bulletColors = new List<Material>();
     [SerializeField] private float fireDelay, chngeDelay;
-    [SerializeField] private GameObject firePos, curBullet;
+    [SerializeField] private GameObject firePos;
+    [SerializeField] private GameObject curBullet;
     private bool canFire = true;
-    int num = 0;
 
     void Awake()
     {
         bulletSwap = GetComponent<BulletSwap>();
-        curBullet = bullets[num]; //√ ±‚ ªˆ¿∫ ª°∞≠¿∏∑Œ Ω√¿€
+        //curBullet.GetComponent<MeshRenderer>().materials[0];
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canFire) //Î©îÌÖåÎ¶¨ÏñºÏùÑ Î∞îÍøîÏ£ºÏûê?
         {
-            Debug.Log("¥≠∑µ¿Ω");
-            BulletFire();
 
-            curBullet = bullets[(int)bulletSwap._BulletType];
+            Debug.Log("Î∞úÏÇ¨");
+            switch (bulletSwap.colorEnum) {
+
+                case ColorEnum.red : {
+
+                }
+                break;
+                case ColorEnum.yellow : {
+
+                }
+                break;
+                case ColorEnum.blue : {
+
+                }
+                break;
+            }
             
-            //curBullet = bulletSwap._BulletType;
+            BulletFire();
         }
     }
 
@@ -36,11 +48,11 @@ public class Fire : MonoBehaviour
     {
         Instantiate(curBullet, firePos.transform.position, Quaternion.identity);
         canFire = false;
-        StartCoroutine("BulletFire");
+        StartCoroutine(Delay());
     }
 
     IEnumerator Delay()
-    {
+    {    
         yield return new WaitForSeconds(fireDelay);
         canFire = true;
     }
