@@ -18,4 +18,6 @@ public class Bullet : MonoBehaviour
     {
         rb.AddForce(transform.forward * power, formd);
     }
+
+    
 }
