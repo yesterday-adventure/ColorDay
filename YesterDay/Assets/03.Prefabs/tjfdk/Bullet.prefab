@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6287279833816464005}
   - component: {fileID: 6287279833816464004}
   - component: {fileID: 6287279833816464007}
-  - component: {fileID: 6287279833816464006}
   - component: {fileID: -4358272651293599313}
   - component: {fileID: 8044891022366132577}
+  - component: {fileID: 7947401234949348342}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -85,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6287279833816464006
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6287279833816464001}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-4358272651293599313
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -106,7 +93,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6287279833816464001}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -126,5 +113,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a5767f1fa5a2e4686596131ad17829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 2.5
-  formd: 2
+  power: 1
+  formd: 1
+--- !u!136 &7947401234949348342
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6287279833816464001}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

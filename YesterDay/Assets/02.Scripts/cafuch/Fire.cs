@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//풀 매니저 사용하기
 
 public class Fire : MonoBehaviour
 {
@@ -23,9 +24,8 @@ public class Fire : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canFire) //메테리얼을 바꿔주자?
         {
 
-            Debug.Log("발사");
-            Debug.Log(bulletSwap.colorEnum);
             GameObject obj = Instantiate(curBullet, firePos.transform.position, Quaternion.identity);
+            // GameObject obj = PoolManager.Instance.Pop(curBullet, firePos.transform.position, Quaternion.identity);
             MeshRenderer mesh = obj.GetComponent<MeshRenderer>();
 
             switch (bulletSwap.colorEnum) {

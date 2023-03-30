@@ -18,4 +18,10 @@ public class Bullet : MonoBehaviour
     {
         rb.AddForce(transform.forward * power, formd);
     }
+
+    private void OnTriggerEnter(Collider other) {
+        
+        Destroy(this.gameObject);
+        //PoolManager.Instance.Push(this.gameObject);
+    }
 }
