@@ -6,6 +6,7 @@ public class ColorManager : MonoBehaviour
 {
     static public ColorManager instance;
     public List<Material> colorMaterials;
+    public List<Material> GhostcolorMaterials;
     private void Awake()
     {
         if (instance != null)
