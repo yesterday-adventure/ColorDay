@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class ColorManager : MonoBehaviour
@@ -7,18 +8,21 @@ public class ColorManager : MonoBehaviour
     static public ColorManager instance;
     public List<Material> colorMaterials;
     public List<Material> GhostcolorMaterials;
+    public Dictionary<int, Material> colorMaterialsDC;
+    public Dictionary<int, Material> ghostcolorMaterialsDC;
+
     private void Awake()
     {
         if (instance != null)
             Debug.LogError($"{transform}: ColorManager Multiple");
         else
-           instance = this;
+            instance = this;
     }
 
     public ColorEnum AddColor(ColorEnum originColor, ColorEnum addColor)
     {
         Debug.Log("´ê¾Ò´Ù!");
-        if (CanChangeColor(originColor,addColor))
+        if (CanChangeColor(originColor, addColor))
         {
             return originColor + (int)addColor;
         }
@@ -29,8 +33,8 @@ public class ColorManager : MonoBehaviour
 
     public bool CanChangeColor(ColorEnum originColor, ColorEnum addColor)
     {
-        if(originColor == addColor || (originColor == ColorEnum.puple) && (addColor == ColorEnum.yellow)
-            || (originColor == ColorEnum.orange) && (addColor == ColorEnum.blue) || (originColor == ColorEnum.green) && (addColor == ColorEnum.red)) 
+        if (originColor == addColor || (originColor == ColorEnum.puple) && (addColor == ColorEnum.yellow)
+            || (originColor == ColorEnum.orange) && (addColor == ColorEnum.blue) || (originColor == ColorEnum.green) && (addColor == ColorEnum.red))
             return false;
 
         return true;
@@ -38,10 +42,10 @@ public class ColorManager : MonoBehaviour
 
     public bool CheckColor(ColorEnum originColor, ColorEnum compareColor)
     {
-        if(originColor == compareColor)
+        if (originColor == compareColor)
             return true;
         else
             return false;
     }
-    public ColorEnum ChangeWhite()=> ColorEnum.white;
+    public ColorEnum ChangeWhite() => ColorEnum.white;
 }
