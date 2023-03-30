@@ -333,7 +333,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletColor: 1
   power: 3
-  speed: 3
 --- !u!54 &228938830
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1299,6 +1298,34 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 2100000, guid: c2a3425d0f7ec424c870859819656feb, type: 2}
+  GhostcolorMaterials:
+  - {fileID: 2100000, guid: 3dda1b499bba4ea4f98decf5a7b2416c, type: 2}
+  - {fileID: 2100000, guid: 920f3340ba03dc44f9b034d981df8ab8, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: acfc98f4b13e0914cb92b88721efb6bb, type: 2}
+  - {fileID: 2100000, guid: 7091786aa4ebeac40ac201184313be54, type: 2}
+  - {fileID: 2100000, guid: cac092af1768cc242adf5b5d0b14dfb2, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: baf16f6c220a01f439b4c12068de33ff, type: 2}
+  - {fileID: 2100000, guid: 43bba775910d5fb43bb978ae92b52859, type: 2}
+  - {fileID: 2100000, guid: ff5ea12d3ac02d64ca338cbf558b33da, type: 2}
+  - {fileID: 2100000, guid: 70ba9d8b05cb33e4c987d427656fcd3a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 4e302a6938531c64e8a571b780e91055, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: ebaa8ec1556da0a4cb3ba8a43e3cbb5a, type: 2}
+  - {fileID: 2100000, guid: 1979ef05a88a33c478ef94a565e89b37, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 0df047a4bf9439840900e389d944090a, type: 2}
 --- !u!1 &1408024767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,12 +1890,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec78f5e103558384da92d898b059db2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieColor: 1
+  dieColor: 16
   currentColor: 1
   power: 3
   speed: 3
   attackSpeed: 1
   colorSphere: {fileID: 45451460}
+  bodyColor: {fileID: 1838050033136958351}
 --- !u!114 &4715669902572287895
 MonoBehaviour:
   m_ObjectHideFlags: 0
