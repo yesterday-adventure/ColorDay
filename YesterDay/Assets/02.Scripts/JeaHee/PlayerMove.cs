@@ -68,15 +68,16 @@ public class PlayerMove : MonoBehaviour
 
     private void Move()
     {
-        transform.eulerAngles = new Vector3(0, _cam.transform.eulerAngles.y, 0);
+        //transform.eulerAngles = new Vector3(0, _cam.transform.eulerAngles.y, 0);
 
         if (_isDash == false)
         {
             if (controller.isGrounded)
             {
                 MoveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-                MoveDir = transform.TransformDirection(MoveDir);
-                MoveDir *= speed;
+                //MoveDir = transform.TransformDirection(MoveDir);
+                ;
+                MoveDir = MoveDir.normalized * speed;
                 // 캐릭터 점프
                 if (Input.GetButton("Jump"))
                     MoveDir.y = jumpSpeed;
@@ -86,6 +87,7 @@ public class PlayerMove : MonoBehaviour
         MoveDir.y -= gravity * Time.deltaTime; //중력 연산
 
         // 캐릭터 움직임.
+        Debug.Log(MoveDir);
         controller.Move(MoveDir * Time.deltaTime);
     }
 }
