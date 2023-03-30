@@ -359,14 +359,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 618802692}
-  m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 0, z: 1.52}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 618778693}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &668366656
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 1905433457}
   - component: {fileID: 1905433459}
   m_Layer: 0
-  m_Name: desfghk
+  m_Name: dd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireDelay: 0.25
-  chngeDelay: 0
+  chngeDelay: 0.5
   firePos: {fileID: 618802692}
   curBullet: {fileID: 6287279833816464001, guid: 63f00a33d49170746a852a8c073b29ac, type: 3}
 --- !u!4 &1905433458
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952d3a1c59fdcfe45a1bc7971c40cac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idx: 9
+  idx: 3
   colorEnum: 1
 --- !u!1 &2054461487
 GameObject:
