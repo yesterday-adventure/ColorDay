@@ -8,8 +8,9 @@ public class ColorManager : MonoBehaviour
     static public ColorManager instance;
     public List<Material> colorMaterials;
     public List<Material> GhostcolorMaterials;
-    public Dictionary<int, Material> colorMaterialsDC;
-    public Dictionary<int, Material> ghostcolorMaterialsDC;
+
+    //public Dictionary<int, Material> colorMaterialsDC;
+    //public Dictionary<int, Material> ghostcolorMaterialsDC;
 
     private void Awake()
     {
