@@ -7,7 +7,7 @@ public class TestEnemy : ColorEnemy
 {
     [SerializeField] GameObject colorSphere;
     [SerializeField] GameObject bodyColor;
-    
+
     private void OnEnable()
     {
         MeshRenderer f = colorSphere.GetComponent<MeshRenderer>();
@@ -16,13 +16,15 @@ public class TestEnemy : ColorEnemy
         SkinnedMeshRenderer b = bodyColor.GetComponent<SkinnedMeshRenderer>();
         b.material = ColorManager.instance.GhostcolorMaterials[(int)currentColor];
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("PlayerBullet"))
+        if (other.CompareTag("PlayerBullet"))
         {
+            Debug.Log(1);
             ColorBullet color = other.GetComponent<ColorBullet>();
 
-            if(color.BulletColor == ColorEnum.white )
+            if (color.BulletColor == ColorEnum.white)
             {
                 currentColor = ColorManager.instance.ChangeWhite();
             }

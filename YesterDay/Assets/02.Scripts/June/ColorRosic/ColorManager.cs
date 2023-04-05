@@ -1,24 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class ColorManager : MonoBehaviour
 {
-    static public ColorManager instance;
+
+    private static ColorManager Instance;
+
+    public static ColorManager instance
+    {
+        get
+        {
+            if (Instance == null)
+                Instance = FindObjectOfType<ColorManager>();
+            return Instance;
+        }
+    }
+
     public List<Material> colorMaterials;
     public List<Material> GhostcolorMaterials;
 
     //public Dictionary<int, Material> colorMaterialsDC;
     //public Dictionary<int, Material> ghostcolorMaterialsDC;
-
-    private void Awake()
-    {
-        if (instance != null)
-            Debug.LogError($"{transform}: ColorManager Multiple");
-        else
-            instance = this;
-    }
 
     public ColorEnum AddColor(ColorEnum originColor, ColorEnum addColor)
     {
