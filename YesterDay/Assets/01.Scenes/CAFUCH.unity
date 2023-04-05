@@ -603,6 +603,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 2100000, guid: c2a3425d0f7ec424c870859819656feb, type: 2}
+  GhostcolorMaterials: []
 --- !u!114 &1252707654
 MonoBehaviour:
   m_ObjectHideFlags: 0

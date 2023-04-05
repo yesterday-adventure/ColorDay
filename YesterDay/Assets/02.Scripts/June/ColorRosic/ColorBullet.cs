@@ -9,5 +9,4 @@ public class ColorBullet : MonoBehaviour
     public ColorEnum BulletColor => bulletColor;
     [SerializeField] private float power = 3f;
     public float Power => power;
-    //[SerializeField] private float speed = 3f;
 }
