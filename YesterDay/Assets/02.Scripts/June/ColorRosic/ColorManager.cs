@@ -33,14 +33,13 @@ public class ColorManager : MonoBehaviour
             return originColor + (int)addColor;
         }
         else
-            return originColor;
+            return ColorEnum.violet;
     }
 
 
     public bool CanChangeColor(ColorEnum originColor, ColorEnum addColor)
     {
-        if (originColor == addColor || (originColor == ColorEnum.puple) && (addColor == ColorEnum.yellow)
-            || (originColor == ColorEnum.orange) && (addColor == ColorEnum.blue) || (originColor == ColorEnum.green) && (addColor == ColorEnum.red))
+        if (originColor == addColor || ((originColor == ColorEnum.puple) && (addColor == ColorEnum.yellow)) || ((originColor == ColorEnum.orange) && (addColor == ColorEnum.blue)) || ((originColor == ColorEnum.green) && (addColor == ColorEnum.red)))
             return false;
 
         return true;
