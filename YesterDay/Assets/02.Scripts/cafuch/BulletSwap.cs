@@ -7,7 +7,6 @@ public class BulletSwap : MonoBehaviour
     public int idx = 3;
     public ColorEnum colorEnum = ColorEnum.red;
     private void Update() {
-        
         Swap();    
     }
 

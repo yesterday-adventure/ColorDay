@@ -27,20 +27,19 @@ public class ColorManager : MonoBehaviour
 
     public ColorEnum AddColor(ColorEnum originColor, ColorEnum addColor)
     {
-        Debug.Log("´ê¾Ò´Ù!");
+        Debug.Log("ï¿½ï¿½Ò´ï¿½!");
         if (CanChangeColor(originColor, addColor))
         {
             return originColor + (int)addColor;
         }
         else
-            return originColor;
+            return ColorEnum.violet;
     }
 
 
     public bool CanChangeColor(ColorEnum originColor, ColorEnum addColor)
     {
-        if (originColor == addColor || (originColor == ColorEnum.puple) && (addColor == ColorEnum.yellow)
-            || (originColor == ColorEnum.orange) && (addColor == ColorEnum.blue) || (originColor == ColorEnum.green) && (addColor == ColorEnum.red))
+        if (originColor == addColor || ((originColor == ColorEnum.puple) && (addColor == ColorEnum.yellow)) || ((originColor == ColorEnum.orange) && (addColor == ColorEnum.blue)) || ((originColor == ColorEnum.green) && (addColor == ColorEnum.red)))
             return false;
 
         return true;
