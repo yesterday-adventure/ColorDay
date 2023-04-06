@@ -33,7 +33,6 @@ public class Fire : MonoBehaviour
 
                 case ColorEnum.red:
                     {
-                        Debug.Log("시댄 ㅠㅠ");
                         mesh.material = ColorManager.instance.colorMaterials[1];
                     }
                     break;

@@ -5,36 +5,7 @@ using UnityEngine;
 
 public class TestEnemy : ColorEnemy
 {
-    [SerializeField] GameObject colorSphere;
-    [SerializeField] GameObject bodyColor;
+    
 
-    MeshRenderer f = null;
-    SkinnedMeshRenderer b = null;
-
-    private void OnEnable()
-    {
-        f = colorSphere.GetComponent<MeshRenderer>();
-        f.material = ColorManager.instance.colorMaterials[(int)dieColor];
-
-        b = bodyColor.GetComponent<SkinnedMeshRenderer>();
-        b.material = ColorManager.instance.GhostcolorMaterials[(int)currentColor];
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PlayerBullet"))
-        {
-            b.material = ColorManager.instance.colorMaterials[(int)other.transform.GetComponent<ColorBullet>().BulletColor];
-            Debug.Log(1);
-            ColorBullet color = other.GetComponent<ColorBullet>();
-
-            if (color.BulletColor == ColorEnum.white)
-            {
-                currentColor = ColorManager.instance.ChangeWhite();
-            }
-            currentColor = ColorManager.instance.AddColor(currentColor, color.BulletColor);
-            if (ColorManager.instance.CheckColor(dieColor, currentColor))
-                Destroy(gameObject);
-        }
-    }
+    
 }
