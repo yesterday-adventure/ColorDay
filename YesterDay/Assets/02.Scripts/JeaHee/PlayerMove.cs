@@ -11,11 +11,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float speed;      // 캐릭터 움직임 스피드.
     [SerializeField] private float jumpSpeed;  // 캐릭터 점프 힘.
     [SerializeField] private float gravity;    // 캐릭터에게 작용하는 중력.
-    [SerializeField] private float rotateSpeed = 50f;
 
     private float originSpeed;
     private bool canDash = true;
-    private float mouseX = 0;
     private Camera _cam;
     private CharacterController controller; // 현재 캐릭터가 가지고있는 캐릭터 컨트롤러 콜라이더.
     private Vector3 MoveDir;                // 캐릭터의 움직이는 방향.
