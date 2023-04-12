@@ -6,9 +6,10 @@ public enum State {
 
     STOP,
     IDLE,
-    WORK,
+    WALK,
     RUN,
-    ATTACK
+    ATTACK,
+    DIE
 }
 
 public class TEnemyState : MonoBehaviour
