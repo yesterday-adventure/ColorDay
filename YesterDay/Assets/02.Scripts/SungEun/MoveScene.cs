@@ -9,4 +9,9 @@ public class MoveScene : MonoBehaviour
     {
         SceneManager.LoadScene(name);
     }
+
+    public void DebugShow(string show)
+    {
+        Debug.Log(show);
+    }
 }
