@@ -15,6 +15,8 @@ public class TEnemyMove : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
+    private bool isChg = true;
+
     void Awake()
     {
         enemy = GetComponent<Enemy>();
@@ -30,16 +32,18 @@ public class TEnemyMove : MonoBehaviour
             {
                 case State.STOP:
                 {
-                    transform.position = transform.position;
-                    Delay(3);
+                    rb.velocity = Vector3.zero;
+                    if(isChg)
+                        StartCoroutine(Delay(2));
                 }
                 break;
                 case State.IDLE:
                 {
+                    if(isChg) {
 
-                    Debug.Log("idle");
-                    RandomMove();
-                    Delay(1);
+                        RandomMove();
+                        StartCoroutine(Delay(3));
+                    }
                 }
                 break;
                 case State.WALK:
@@ -84,8 +88,11 @@ public class TEnemyMove : MonoBehaviour
     IEnumerator Delay(float delay) 
     {
         Debug.Log(tenemyState.curState + "중");
+        isChg = false;
         yield return new WaitForSeconds(delay);
+        isChg = true;
         tenemyState.curState = tenemyState.curState == State.STOP ? tenemyState.curState = State.IDLE : tenemyState.curState = State.STOP;
+        Debug.Log(tenemyState.curState);
         //현재의 상태를 정지와 배회의 반대 상태로 바꿔주는 삼항연산자
     }
 }
