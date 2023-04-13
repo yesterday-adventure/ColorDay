@@ -3,6 +3,7 @@ using System.Diagnostics.Contracts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TEnemyMove : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class TEnemyMove : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
+    private bool follow = false;
     private bool isChg = true;
 
     void Awake()
@@ -48,8 +50,14 @@ public class TEnemyMove : MonoBehaviour
                 break;
                 case State.WALK:
                 {
-                    Debug.Log(tenemyState.curState);
+                    if (!follow) {
+
+                        //다트윈 떡칠해서?
+                        //아잇 찾았다~ 하는 거 보여주고?ㄴ 에너미 방향을 플레이어 방향으로 돌리고?
+                        follow = true; //한 번만 돌아가도록
+                    }
                     //걷기 이상이라면 실행하지 않는다
+                    Debug.Log(tenemyState.curState);
                     Move(walkSpeed);
                 }
                 break;
@@ -61,7 +69,7 @@ public class TEnemyMove : MonoBehaviour
                 break;
                 case State.ATTACK:
                 {
-                    Debug.Log("에잇 잇팔");
+                    Debug.Log(tenemyState.curState);
                     Move(runSpeed);
                 }
                 break;
@@ -74,7 +82,7 @@ public class TEnemyMove : MonoBehaviour
         int a = Random.Range(-1 , 2);
         int b = Random.Range(-1 , 2);
         Vector3 dir = new(a, 0, b);
-        dir.Normalize();;
+        dir.Normalize();
         rb.velocity = dir * walkSpeed;
     }
 
@@ -87,12 +95,10 @@ public class TEnemyMove : MonoBehaviour
 
     IEnumerator Delay(float delay) 
     {
-        Debug.Log(tenemyState.curState + "중");
         isChg = false;
         yield return new WaitForSeconds(delay);
         isChg = true;
         tenemyState.curState = tenemyState.curState == State.STOP ? tenemyState.curState = State.IDLE : tenemyState.curState = State.STOP;
-        Debug.Log(tenemyState.curState);
         //현재의 상태를 정지와 배회의 반대 상태로 바꿔주는 삼항연산자
     }
 }
