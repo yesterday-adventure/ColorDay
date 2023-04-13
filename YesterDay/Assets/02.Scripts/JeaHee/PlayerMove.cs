@@ -8,15 +8,15 @@ using UnityEngine.UIElements;
 public class PlayerMove : MonoBehaviour
 {
 
-    [SerializeField] private float speed;      // Ä³¸¯ÅÍ ¿òÁ÷ÀÓ ½ºÇÇµå.
-    [SerializeField] private float jumpSpeed;  // Ä³¸¯ÅÍ Á¡ÇÁ Èû.
-    [SerializeField] private float gravity;    // Ä³¸¯ÅÍ¿¡°Ô ÀÛ¿ëÇÏ´Â Áß·Â.
+    [SerializeField] private float speed;      // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½.
+    [SerializeField] private float jumpSpeed;  // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+    [SerializeField] private float gravity;    // Ä³ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½Û¿ï¿½ï¿½Ï´ï¿½ ï¿½ß·ï¿½.
 
     private float originSpeed;
     private bool canDash = true;
     private Camera _cam;
-    private CharacterController controller; // ÇöÀç Ä³¸¯ÅÍ°¡ °¡Áö°íÀÖ´Â Ä³¸¯ÅÍ ÄÁÆ®·Ñ·¯ ÄÝ¶óÀÌ´õ.
-    private Vector3 MoveDir;                // Ä³¸¯ÅÍÀÇ ¿òÁ÷ÀÌ´Â ¹æÇâ.
+    private CharacterController controller; // ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½Ý¶ï¿½ï¿½Ì´ï¿½.
+    private Vector3 MoveDir;                // Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
     void Awake()
     {
@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
 
         //float h = Input.GetAxisRaw("Horizontal");
         //transform.rotation = Quaternion.Euler(0, h * Time.deltaTime * rotateSpeed, 0) * transform.rotation;
-        // ÇöÀç Ä³¸¯ÅÍ°¡ ¶¥¿¡ ÀÖ´Â°¡?
+        // ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â°ï¿½?
         Debug.DrawRay(transform.position, transform.forward, Color.red);
         Dash();
         Move();
@@ -65,15 +65,15 @@ public class PlayerMove : MonoBehaviour
             MoveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             MoveDir = transform.TransformDirection(MoveDir);
             MoveDir *= speed;
-            // Ä³¸¯ÅÍ Á¡ÇÁ
+            // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (Input.GetButton("Jump"))
                 MoveDir.y = jumpSpeed;
         }
 
 
-        MoveDir.y -= gravity * Time.deltaTime; //Áß·Â ¿¬»ê
+        MoveDir.y -= gravity * Time.deltaTime; //ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        // Ä³¸¯ÅÍ ¿òÁ÷ÀÓ.
+        // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
         controller.Move(MoveDir * Time.deltaTime);
     }
 }
