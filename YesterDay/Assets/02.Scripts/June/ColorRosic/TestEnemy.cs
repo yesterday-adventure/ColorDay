@@ -15,12 +15,7 @@ public class TestEnemy : ColorEnemy
 
     private void OnDisable()
     {
-        if(this.gameObject.activeInHierarchy)
-            StartCoroutine(Resurrection());
-    }
-    IEnumerator Resurrection()
-    {
-        yield return new WaitForSeconds(2f);
-        gameObject.SetActive(true);
+        if (gameObject.activeSelf == false && TutorialObject.instance != null)
+            TutorialObject.instance.Resurrection(this.gameObject);
     }
 }
