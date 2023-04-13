@@ -24,15 +24,13 @@ public class TEnemyMove : MonoBehaviour
 
     private void Update() {
 
-        if (tenemyState.curState != State.DIE)
+        if (tenemyState.curState != State.DIE) //살아있다면
         {
             switch (tenemyState.curState)
             {
                 case State.STOP:
                 {
-
-                    Debug.Log("stop");
-                    //멈추는 코드
+                    transform.position = transform.position;
                     Delay(3);
                 }
                 break;
@@ -46,34 +44,33 @@ public class TEnemyMove : MonoBehaviour
                 break;
                 case State.WALK:
                 {
-
-                    Debug.Log("work");
+                    Debug.Log(tenemyState.curState);
+                    //걷기 이상이라면 실행하지 않는다
                     Move(walkSpeed);
                 }
                 break;
                 case State.RUN:
                 {
-
-                    Debug.Log("run");
+                    Debug.Log(tenemyState.curState);
                     Move(runSpeed);
                 }
                 break;
                 case State.ATTACK:
                 {
-
-
+                    Debug.Log("에잇 잇팔");
+                    Move(runSpeed);
                 }
                 break;
             }
         }
     }
 
-    private void RandomMove() 
+    private void RandomMove() //수정필요
     {
         int a = Random.Range(-1 , 2);
         int b = Random.Range(-1 , 2);
         Vector3 dir = new(a, 0, b);
-        dir.Normalize();
+        dir.Normalize();;
         rb.velocity = dir * walkSpeed;
     }
 
@@ -86,7 +83,9 @@ public class TEnemyMove : MonoBehaviour
 
     IEnumerator Delay(float delay) 
     {
+        Debug.Log(tenemyState.curState + "중");
         yield return new WaitForSeconds(delay);
         tenemyState.curState = tenemyState.curState == State.STOP ? tenemyState.curState = State.IDLE : tenemyState.curState = State.STOP;
+        //현재의 상태를 정지와 배회의 반대 상태로 바꿔주는 삼항연산자
     }
 }

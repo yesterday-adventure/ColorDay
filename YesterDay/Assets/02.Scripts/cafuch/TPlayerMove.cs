@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class TPlayerMove : MonoBehaviour
 {
+    private Rigidbody rb;
 
-    private Rigidbody rigid;
-    private float moveForce = 7.0f;
-    private float x_Axis;
-    private float z_Axis;
+    [SerializeField] private float speed = 7.0f;
+    private float x, z;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        rigid = GetComponent<Rigidbody>();
+    void Awake() {
+
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        x_Axis = Input.GetAxis("Horizontal");
-        z_Axis = Input.GetAxis("Vertical");
+    void Update() {
 
-        Vector3 velocity = new Vector3(x_Axis, 0, z_Axis);
-        velocity *= moveForce;
-        rigid.velocity = velocity;
+        x = Input.GetAxis("Horizontal");
+        z = Input.GetAxis("Vertical");
+
+        Vector3 dir = new Vector3(x, 0, z);
+        rb.velocity = dir.normalized * speed;
     }
 }

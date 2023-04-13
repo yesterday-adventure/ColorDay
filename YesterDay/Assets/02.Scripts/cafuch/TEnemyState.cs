@@ -4,15 +4,15 @@ using UnityEngine;
 
 public enum State {
 
-    STOP,
+    STOP = 0,
     IDLE,
+    ATTACK,
     WALK,
     RUN,
-    ATTACK,
     DIE
 }
 
 public class TEnemyState : MonoBehaviour
 {
-    public State curState = State.STOP;
+    public State curState = State.IDLE;
 }   
