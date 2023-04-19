@@ -117,10 +117,10 @@ Material:
     - _Color_1: {r: 0.3160377, g: 0.9585863, b: 1, a: 0.8588235}
     - _Color_2: {r: 0.1933962, g: 0.4258409, b: 1, a: 0.8078431}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FaceColor: {r: 1.2676506e+30, g: 1.2676506e+30, b: 1.2676506e+30, a: 1}
     - _FaceUVSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
-    - _IsoPerimeter: {r: 0, g: 0.1, b: 0.2, a: 0.3}
+    - _IsoPerimeter: {r: 0, g: 0, b: 0, a: 0}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _NoShaderColor: {r: 0, g: 0, b: 0, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
