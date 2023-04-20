@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
+    public static Fire instance;
     BulletSwap bulletSwap;
 
     // [SerializeField] private List<Material> bulletColors = new List<Material>();
@@ -13,8 +14,13 @@ public class Fire : MonoBehaviour
     [SerializeField] private GameObject curBullet;
     private bool canFire = true;
 
+    public float FireDelay { get => fireDelay;}
     void Awake()
     {
+        if (instance == null)
+            instance = this;
+        else
+            Debug.LogError("Fire is Multiplying");
         bulletSwap = GetComponent<BulletSwap>();
         //curBullet.GetComponent<MeshRenderer>().materials[0];
     }
