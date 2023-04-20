@@ -17,7 +17,7 @@ public class ColorEnemy : MonoBehaviour
 
     MeshRenderer f = null;
     SkinnedMeshRenderer b = null;
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         f = colorSphere.GetComponent<MeshRenderer>();
         f.material = ColorManager.instance.colorMaterials[(int)dieColor];
@@ -25,7 +25,8 @@ public class ColorEnemy : MonoBehaviour
         b = bodyColor.GetComponent<SkinnedMeshRenderer>();
         b.material = ColorManager.instance.GhostcolorMaterials[(int)currentColor];
     }
-    protected void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PlayerBullet"))
         {
@@ -38,7 +39,7 @@ public class ColorEnemy : MonoBehaviour
             currentColor = ColorManager.instance.AddColor(currentColor, color.BulletColor);
             b.material = ColorManager.instance.GhostcolorMaterials[(int)currentColor];
             if (ColorManager.instance.CheckColor(dieColor, currentColor))
-                Destroy(gameObject);
+                gameObject.SetActive(false);
         }
     }
 }
