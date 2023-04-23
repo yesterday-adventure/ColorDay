@@ -9,9 +9,11 @@ public class GamePlayButton : MonoBehaviour
     [SerializeField]
     private GameObject panel;       // 창의 검은색 뒷 배경
     [SerializeField]
-    private GameObject SettingWindow;       // 셋팅 창
+    private GameObject SettingWindow, GoSettingButton;       // 셋팅 창, 셋팅 열기 버튼
     [SerializeField]
     private GameObject ExitWindow;      // 나가기창
+    [SerializeField]
+    private List<Button> ActiveButton = new List<Button>();
 
     [SerializeField]
     private int appearedTime = 1;   // 생기고 사라지는 시간
@@ -49,6 +51,7 @@ public class GamePlayButton : MonoBehaviour
 
      public void SettingWindowAppear()
     {
+        GoSettingButton.SetActive(false);
         possible = false;   // 지금은 창이 나오고 있어서 키 입력을 안받을거야
         panel.SetActive(true);  // 꺼진 패널 오브젝트를 켜주고
         SettingWindow.SetActive(true);      // 꺼진 셋팅창을 켜주고
@@ -61,11 +64,16 @@ public class GamePlayButton : MonoBehaviour
     {
         possible = false;   // 애니매이션 때문에 꺼주는 거야
         SettingWindow.transform.DOScale(new Vector3(0, 0, 0), appearedTime).SetEase(Ease.InBack);       // 창을 뚀잉하게 사라지게 해준다.
-        if (!in_exit)
+        if (!in_exit)   // 만약 익시트를 눌러서 셋팅창이 꺼지는 경우라면
         {
-        panel.GetComponent<Image>().DOFade(0, appearedTime);    // 어두웠던 것을 사라지게 하고
+            GoSettingButton.SetActive(true);
+            panel.GetComponent<Image>().DOFade(0, appearedTime);    // 어두웠던 것을 사라지게 하고
         }
         StartCoroutine(Wait(appearedTime, true));   // possible 과 오브젝트들을 꺼주기 위해서 불러주자
+
+
+
+        // 여기서 데이터 저장? 하면 될 듯, ok 니까
     }
 
     public void ExitWindowAppear()  // 버튼을 누르면 익시트창이 나옴
@@ -80,7 +88,7 @@ public class GamePlayButton : MonoBehaviour
 
     public void ExitWindowDisapear()
     {
-        Debug.Log("익시트 창 꺼저 버려");
+        GoSettingButton.SetActive(true);
         possible = false;   // 지금 익시트이 사라지고 있어
         panel.GetComponent<Image>().DOFade(0, appearedTime);    // 어두웠던 것을 사라지게 하고
         ExitWindow.transform.DOScale(new Vector3(0, 0, 0), appearedTime).SetEase(Ease.InBack);  // 쨘 사라졌네
@@ -89,20 +97,33 @@ public class GamePlayButton : MonoBehaviour
 
     public void RealExit()
     {
-        panel.GetComponent<Image>().DOFade(1, appearedTime);    // 완전히 어두워졌으면
+        // 이거 화면 계속 뒤에 있어서 이거 바꾸면 좋을 듯
+        panel.transform.SetAsLastSibling();     // 하이어라키 창에서 가장 아래로 움직여 가장 위에 그려지도록 한다
+        panel.GetComponent<Image>().DOFade(1, appearedTime + appearedTime);    // 완전히 어두워졌으면
         StartCoroutine(Wait(appearedTime, false, true));   // 어두운거 확인하고 자자.
     }
 
     IEnumerator Wait(int delay, bool disappear, bool in_exit = false)
     {
+        foreach(Button b in ActiveButton)   // 버튼이 눌리지 않게
+        {
+            b.interactable = false;
+        }
+
         yield return new WaitForSeconds(delay + 0.1f);  // 딜레이 + 0.1만큼을 기다려주자.
+
+        foreach (Button b in ActiveButton)  // 버튼 다시 눌리게
+        {
+            b.interactable = true;
+        }
 
         if (in_exit)
         {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+            yield return new WaitForSeconds(delay);     // 일반꺼의 2배 정도 더 오래 그려주기
+#if UNITY_EDITOR        // 만약 유니티엔진 내에서라면(빌드된거 아니면)
+            UnityEditor.EditorApplication.isPlaying = false;        // 유니티 엔진내에서 플레이를 멈춰주기
 #else
-            Application.Quit();
+            Application.Quit();     // 앱 나가기
 #endif
         }
 
