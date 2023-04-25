@@ -8,7 +8,8 @@ public class StageTuto : MonoBehaviour
     public static StageTuto Instance;
 
     [SerializeField] TextMeshProUGUI showTmp;
-    [SerializeField] TextMeshProUGUI TopTmp;
+    [SerializeField] TextMeshProUGUI topTmp;
+    [SerializeField]public TextMeshProUGUI processTmp;
 
     [SerializeField] string[] Txt;
     public int idx = 0;
@@ -23,14 +24,17 @@ public class StageTuto : MonoBehaviour
     private void Start()
     {
         ShowText();
+        TopText();
+        processTmp.text = "";
     }
 
     public void ClearQuest()
     {
+        processTmp.text = "";
         ++idx;
         ShowText();
         TopText();
     }
     public void ShowText() => showTmp.text = Txt[idx];
-    public void TopText() => TopTmp.text = $"< {idx + 1} / 5 >";
+    public void TopText() => topTmp.text = $"< {idx + 1} / 5 >";
 }
