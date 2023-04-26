@@ -60,7 +60,7 @@ public class TestEnemy : ColorEnemy
     public void SetCurColorNormal()
     {
         int idx = Random.Range(0, arrNormal.Length);
-        while ((ColorEnum)arrNormal[idx] != dieColor)
+        while ((ColorEnum)arrNormal[idx] == dieColor)
         {
             idx = Random.Range(0, arrNormal.Length);
         }
