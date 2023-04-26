@@ -34,6 +34,7 @@ public class TEnemyMove : MonoBehaviour
             {
                 case State.STOP:
                 {
+                    // Debug.Log(tenemyState.curState);
                     rb.velocity = Vector3.zero;
                     if(isChg)
                         StartCoroutine(Delay(2));
@@ -41,6 +42,7 @@ public class TEnemyMove : MonoBehaviour
                 break;
                 case State.IDLE:
                 {
+                    // Debug.Log(tenemyState.curState);
                     if(isChg) {
 
                         RandomMove();
@@ -57,19 +59,19 @@ public class TEnemyMove : MonoBehaviour
                         follow = true; //한 번만 돌아가도록
                     }
                     //걷기 이상이라면 실행하지 않는다
-                    Debug.Log(tenemyState.curState);
+                    // Debug.Log(tenemyState.curState);
                     Move(walkSpeed);
                 }
                 break;
                 case State.RUN:
                 {
-                    Debug.Log(tenemyState.curState);
+                    // Debug.Log(tenemyState.curState);
                     Move(runSpeed);
                 }
                 break;
                 case State.ATTACK:
                 {
-                    Debug.Log(tenemyState.curState);
+                    // Debug.Log(tenemyState.curState);
                     Move(runSpeed);
                 }
                 break;

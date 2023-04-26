@@ -16,14 +16,10 @@ public class Enemy : MonoBehaviour
     }
 
     private void Update() {
-        
-        //test
-        // if (Input.GetKeyDown(KeyCode.B)) tenemyState.curState++;
-        // if (tenemyState.curState == State.ATTACK) tenemyState.curState = State.STOP;
 
-        PlayerRay(walkDir, State.WALK, Color.red); //레이를 쏴 체크한다
-        PlayerRay(runDir, State.RUN, Color.yellow); //레이를 쏴 체크한다
-        PlayerRay(attackDir, State.ATTACK, Color.blue); //레이를 쏴 체크한다
+        PlayerRay(walkDir, State.WALK);
+        PlayerRay(runDir, State.RUN); 
+        PlayerRay(attackDir, State.ATTACK);
     }
 
     private void OnCollisionEnter(Collision other) {
@@ -34,21 +30,32 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void PlayerRay(float dist, State state, Color color) {
+    private void PlayerRay(float dist, State state) { //문제점, 나가면 안 따라옴 / 겹쳐서 개수만큼 실행됨
 
-        for (int i = 0; i < 360; i += 5)
-        {
-            Vector3 dir = Quaternion.Euler(0, i, 0) * transform.forward;
+        Collider[] hit = Physics.OverlapSphere(this.transform.position, dist, enemyLayer);
 
-            Ray ray = new Ray(transform.position, dir.normalized);
+        for (int i = 0; i < hit.Length; ++i) {
 
-            Debug.DrawRay(ray.origin, ray.direction * dist, color);
+            if (hit[i].gameObject.layer == 7) {
 
-            if (Physics.Raycast(ray, dist, enemyLayer))
-            {
-                if ((int)tenemyState.curState < (int)state)
+                if (tenemyState.curState < state) {
+
+                    Debug.Log(state);
                     tenemyState.curState = state;
+                }
             }
         }
+    }
+
+    private void OnDrawGizmos() {
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, walkDir);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(this.transform.position, runDir);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(this.transform.position, attackDir);
     }
 }
