@@ -14,8 +14,11 @@ public class TestEnemy : ColorEnemy
         dieColor = (ColorEnum)arr[Random.Range(0, arr.Length)];
         if (StageTuto.Instance.idx == 1)
             SetColorEasy();
-        else if(StageTuto.Instance.idx == 2) 
+        else if(StageTuto.Instance.idx == 2 || StageTuto.Instance.idx == 3) 
             SetColorNormal();
+
+        if(StageTuto.Instance.idx == 3)
+            SetCurColorNormal();
         base.OnEnable();
     }
 
@@ -45,10 +48,22 @@ public class TestEnemy : ColorEnemy
                 TutoSecondQuest.Instance.cnt++;
             else if (TutoThirdQuest.Instance != null && StageTuto.Instance.idx == 2)
                 TutoThirdQuest.Instance.cnt++;
+            else if (TutoFourthQuest.Instance != null && StageTuto.Instance.idx == 3)
+                TutoFourthQuest.Instance.cnt++;
         }
     }
 
     public void SetColorEasy() => dieColor = (ColorEnum)arrEasy[Random.Range(0, arrEasy.Length)];
 
     public void SetColorNormal() => dieColor = (ColorEnum)arrNormal[Random.Range (0, arrNormal.Length)];
+
+    public void SetCurColorNormal()
+    {
+        int idx = Random.Range(0, arrNormal.Length);
+        while ((ColorEnum)arrNormal[idx] != dieColor)
+        {
+            idx = Random.Range(0, arrNormal.Length);
+        }
+        currentColor = (ColorEnum)arrNormal[idx];
+    }
 }
