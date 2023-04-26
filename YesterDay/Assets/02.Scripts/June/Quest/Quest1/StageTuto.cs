@@ -32,6 +32,8 @@ public class StageTuto : MonoBehaviour
     {
         processTmp.text = "";
         ++idx;
+        if (idx >= Txt.Length)
+            idx--;
         ShowText();
         TopText();
     }
