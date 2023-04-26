@@ -20,9 +20,10 @@ public class TutorialObject : MonoBehaviour
 
     IEnumerator ResurrectionCo(GameObject obj)
     {
-        Debug.Log("주금");
+        Debug.Log("주월화수목금");
         yield return new WaitForSeconds(2f);
         Debug.Log("뚜루루루띵까뿡까 살아나라얍!");
-        obj.SetActive(true);
+        if(obj != null)
+            obj.SetActive(true);
     }
 }

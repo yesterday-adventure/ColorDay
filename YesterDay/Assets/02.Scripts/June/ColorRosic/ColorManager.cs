@@ -34,7 +34,7 @@ public class ColorManager : MonoBehaviour
     public bool CanChangeColor(ColorEnum originColor, ColorEnum addColor)
     {
         if (originColor == addColor ||
-            ((originColor == ColorEnum.puple) && (addColor == ColorEnum.yellow)) ||
+            ((originColor == ColorEnum.purple) && (addColor == ColorEnum.yellow)) ||
             ((originColor == ColorEnum.orange) && (addColor == ColorEnum.blue)) ||
             ((originColor == ColorEnum.green) && (addColor == ColorEnum.red)) ||
             (originColor == ColorEnum.crimson) || (originColor == ColorEnum.tangerine) || (originColor == ColorEnum.turquoise) ||

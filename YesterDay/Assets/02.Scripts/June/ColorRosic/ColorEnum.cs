@@ -5,7 +5,7 @@ public enum ColorEnum
     blue = 6,//�Ķ���
     yellow = 10,//�����
 
-    puple = 7,//���� + �Ķ� =    ����
+    purple = 7,//���� + �Ķ� =    ����
     orange = 11,//���� + ��� =  ��Ȳ
     green = 16,//�Ķ� + ��� =   �ʷ�
 
