@@ -6,7 +6,7 @@ using DG.Tweening;
 public class PlayerQuest : MonoBehaviour
 {
     [SerializeField] GameObject questPanel;
-    private bool isShow = true;
+    private bool isShow = false;
     Vector3 showPos;
     Vector3 hiddenPos;
 
@@ -14,6 +14,7 @@ public class PlayerQuest : MonoBehaviour
     {
         showPos = questPanel.transform.position;
         hiddenPos = new Vector3(showPos.x + 700, showPos.y, showPos.z);
+        questPanel.transform.position = hiddenPos;
     }
 
     void Update()
