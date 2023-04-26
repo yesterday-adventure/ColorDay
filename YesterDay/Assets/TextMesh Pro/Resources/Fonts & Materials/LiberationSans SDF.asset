@@ -124,9 +124,9 @@ Material:
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _NoShaderColor: {r: 0, g: 0, b: 0, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor1: {r: 0, g: 0.91761684, b: 1, a: 1}
-    - _OutlineColor2: {r: 0, g: 0.3637557, b: 1, a: 1}
-    - _OutlineColor3: {r: 0, g: 0.025779486, b: 1, a: 1}
+    - _OutlineColor1: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor2: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor3: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineOffset1: {r: 0, g: 0, b: 0, a: 0}
     - _OutlineOffset2: {r: 0, g: 0, b: 0, a: 0}
     - _OutlineOffset3: {r: 0, g: 0, b: 0, a: 0}

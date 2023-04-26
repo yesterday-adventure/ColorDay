@@ -9,7 +9,7 @@ public class GamePlayButton : MonoBehaviour
     [SerializeField]
     private GameObject panel;       // 창의 검은색 뒷 배경
     [SerializeField]
-    private GameObject SettingWindow, GoSettingButton;       // 셋팅 창, 셋팅 열기 버튼
+    private GameObject SettingWindow, GoSettingButton, GoExitButton;       // 셋팅 창, 셋팅 열기 버튼
     [SerializeField]
     private GameObject ExitWindow;      // 나가기창
     [SerializeField]
@@ -52,6 +52,7 @@ public class GamePlayButton : MonoBehaviour
      public void SettingWindowAppear()
     {
         GoSettingButton.SetActive(false);
+        GoExitButton.SetActive(false);
         possible = false;   // 지금은 창이 나오고 있어서 키 입력을 안받을거야
         panel.SetActive(true);  // 꺼진 패널 오브젝트를 켜주고
         SettingWindow.SetActive(true);      // 꺼진 셋팅창을 켜주고
@@ -67,6 +68,7 @@ public class GamePlayButton : MonoBehaviour
         if (!in_exit)   // 만약 익시트를 눌러서 셋팅창이 꺼지는 경우라면
         {
             GoSettingButton.SetActive(true);
+            GoExitButton.SetActive(true);
             panel.GetComponent<Image>().DOFade(0, appearedTime);    // 어두웠던 것을 사라지게 하고
         }
         StartCoroutine(Wait(appearedTime, true));   // possible 과 오브젝트들을 꺼주기 위해서 불러주자
@@ -76,11 +78,16 @@ public class GamePlayButton : MonoBehaviour
         // 여기서 데이터 저장? 하면 될 듯, ok 니까
     }
 
-    public void ExitWindowAppear()  // 버튼을 누르면 익시트창이 나옴
+    public void ExitWindowAppear(bool isNew = false)  // 버튼을 누르면 익시트창이 나옴
     {
         exit = true;    // 익시트 창이 나왔어
         SettingWindowDisapear(true);    // 익시트 창이 나와야 하니까
         possible = false;   // 지금 창이 나오고 있어
+        if (isNew)      // 이게 셋팅창에서 들어간게 아니라 진짜 exit 를 누른거라면
+        {
+            panel.SetActive(true);
+            panel.GetComponent<Image>().DOFade(0.4f, appearedTime);     // 패널을 켜준다.
+        }
         ExitWindow.SetActive(true);     // 익시트 창을 켜줬어
         ExitWindow.transform.DOScale(new Vector3(1, 1, 1), appearedTime).SetEase(Ease.OutBack);     // 익시트 창이 뿅 하고 나왔어
         StartCoroutine(Wait(appearedTime, false));      // 애니메이션이 끝났음을 알려주기 위해서
@@ -89,6 +96,7 @@ public class GamePlayButton : MonoBehaviour
     public void ExitWindowDisapear()
     {
         GoSettingButton.SetActive(true);
+        GoExitButton.SetActive(true);
         possible = false;   // 지금 익시트이 사라지고 있어
         panel.GetComponent<Image>().DOFade(0, appearedTime);    // 어두웠던 것을 사라지게 하고
         ExitWindow.transform.DOScale(new Vector3(0, 0, 0), appearedTime).SetEase(Ease.InBack);  // 쨘 사라졌네
