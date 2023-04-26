@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
         PlayerRay(walkDir, State.WALK);
         PlayerRay(runDir, State.RUN); 
         PlayerRay(attackDir, State.ATTACK);
+
+        Debug.Log(tenemyState.curState);
     }
 
     private void OnCollisionEnter(Collision other) {
