@@ -7,19 +7,15 @@ public class TPlayerMove : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField] private float speed = 7.0f;
-    private float x, z;
 
-    void Awake() {
-
+    void Awake()
+    {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update() {
-
-        x = Input.GetAxis("Horizontal");
-        z = Input.GetAxis("Vertical");
-
-        Vector3 dir = new Vector3(x, 0, z);
+    void Update()
+    {
+        Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         rb.velocity = dir.normalized * speed;
     }
 }
