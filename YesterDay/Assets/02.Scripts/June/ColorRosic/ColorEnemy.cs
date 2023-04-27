@@ -6,7 +6,7 @@ public class ColorEnemy : MonoBehaviour
 {
     [Header("에너미 기본 속성")]
     [SerializeField] protected ColorEnum dieColor = ColorEnum.white;
-    [SerializeField] protected ColorEnum currentColor;
+    [SerializeField] public ColorEnum currentColor;
     [SerializeField] protected float power = 3f;
     [SerializeField] protected float speed = 3f;
     [SerializeField] protected float attackSpeed = 1f;
@@ -17,6 +17,7 @@ public class ColorEnemy : MonoBehaviour
 
     MeshRenderer f = null;
     SkinnedMeshRenderer b = null;
+    
     protected virtual void OnEnable()
     {
         f = colorSphere.GetComponent<MeshRenderer>();
