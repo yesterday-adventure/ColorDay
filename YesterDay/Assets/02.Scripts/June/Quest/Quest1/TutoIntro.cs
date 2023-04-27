@@ -12,6 +12,7 @@ public class TutoIntro : MonoBehaviour
     [SerializeField] Fire fire;
     [SerializeField] BulletSwap bulletSwap;
     [SerializeField] GameObject canvas;
+    [SerializeField] GameObject converSationCanvas;
     [SerializeField] GameObject[] Quest;
 
     [Header("Ä«¸Þ¶ó")]
@@ -37,6 +38,7 @@ public class TutoIntro : MonoBehaviour
         canvas.SetActive(false);
         PlayerCamera.SetActive(false);
         SlimeCamera.SetActive(true);
+        converSationCanvas.SetActive(false);
     }
 
     public void TutoStart()
@@ -46,5 +48,25 @@ public class TutoIntro : MonoBehaviour
         SlimeCamera.SetActive(false);
         PlayerCamera.GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = 0;
         PlayerCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = 0;
+        StartCoroutine(Delay());
+    }
+
+    public void GameStart()
+    {
+        playerMove.enabled = true;
+        fire.enabled = true;
+        bulletSwap.enabled = true;
+        foreach (GameObject q in Quest)
+        {
+            q.SetActive(true);
+        }
+        PlayerCamera.GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = 300;
+        PlayerCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = 300;
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(2f);
+        converSationCanvas.SetActive(true) ;
     }
 }
