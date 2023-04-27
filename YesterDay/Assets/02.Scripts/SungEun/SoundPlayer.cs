@@ -37,3 +37,7 @@ public class SoundPlayer : MonoBehaviour
         SV.BGV = volume;    // 데이터 메니져 에 볼륨도 바꿔줌
     }
 }
+
+
+// 그니까 이게 Set 메서드 들이 슬라이더에 들어가 있고 슬라이더 값을 변경하면
+// set 메서드가 실행이 되면서 클립에 있는것과 데이터인스턴스 스크립트 안에 들어가준다.
