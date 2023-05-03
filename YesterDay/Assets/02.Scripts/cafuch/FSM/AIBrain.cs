@@ -9,7 +9,7 @@ public class AIBrain : MonoBehaviour //목적지를 찾아 이동, State 변환
 {
     NavMeshAgent _navAgent;
     [SerializeField] private AIState _aiState; //현재의 AIState
-    [SerializeField] private Transform _playerTrm; //플레이어의 pos 받아오기
+    [SerializeField] public Transform _playerTrm; //플레이어의 pos 받아오기
 
     private void Awake() {
         
@@ -18,11 +18,12 @@ public class AIBrain : MonoBehaviour //목적지를 찾아 이동, State 변환
 
     private void Update() {
         
-        _aiState?.updateState(); //
+        _aiState?.updateState();
     }
 
-    public void SetDestination(Vector3 pos) { //목적지를 찾는 메서드 (== 이동하는 메서드)
+    public void SetDestinationF(Vector3 pos, float speed) { //목적지를 찾는 메서드 (== 이동하는 메서드)
 
+        _navAgent.speed = speed;
         _navAgent.SetDestination(pos); //NavAgent를 통해 pos로 이동한다.
     }
 
