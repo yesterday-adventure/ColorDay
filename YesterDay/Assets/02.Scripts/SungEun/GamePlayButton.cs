@@ -21,12 +21,17 @@ public class GamePlayButton : MonoBehaviour
     bool possible = true;   // 애니메이션이 다 작동하는 중에는 창이 뜨면 안돼. 창이 뜰 수 있을 때만 true로 할거야
     bool setting = false, exit = false;     // 각 창들이 켜져있냐
 
+    [SerializeField]
+    private AudioSource ButtonShow;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))       // esc 를 눌렀다면
         {
             if (possible)       // 창을 사용할 수 있다면
             {
+                // 소리 재생
+                ButtonShow.Play();
                 if (exit)       // 만약 exit창이 현재 켜져 있다면
                 {
                     exit = !exit;       // 활성화된 익시트를 꺼준다.
@@ -51,6 +56,8 @@ public class GamePlayButton : MonoBehaviour
 
      public void SettingWindowAppear()
     {
+        Debug.Log("셋팅창 누름");
+
         GoSettingButton.SetActive(false);
         GoExitButton.SetActive(false);
         possible = false;   // 지금은 창이 나오고 있어서 키 입력을 안받을거야
@@ -95,6 +102,7 @@ public class GamePlayButton : MonoBehaviour
 
     public void ExitWindowDisapear()
     {
+        exit = false;    // 익시트 창이 죽었어
         GoSettingButton.SetActive(true);
         GoExitButton.SetActive(true);
         possible = false;   // 지금 익시트이 사라지고 있어

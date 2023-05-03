@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LiberationSans SDF Material
-  m_Shader: {fileID: -6465566751694194690, guid: a3d800b099a06e0478fb790c5e79057a, type: 3}
+  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 1
@@ -117,7 +117,7 @@ Material:
     - _Color_1: {r: 0.3160377, g: 0.9585863, b: 1, a: 0.8588235}
     - _Color_2: {r: 0.1933962, g: 0.4258409, b: 1, a: 0.8078431}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 9.494952e+29, g: 9.494952e+29, b: 9.494952e+29, a: 1}
+    - _FaceColor: {r: 1.6924118e+30, g: 1.6924118e+30, b: 1.6924118e+30, a: 1}
     - _FaceUVSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _IsoPerimeter: {r: 0, g: 0, b: 0, a: 0}
