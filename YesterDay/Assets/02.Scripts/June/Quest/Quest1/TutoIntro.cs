@@ -8,7 +8,7 @@ public class TutoIntro : MonoBehaviour
     public static TutoIntro instance;
 
     [Header("오브젝트")]
-    [SerializeField] PlayerMove playerMove;
+    [SerializeField] TPlayerMove playerMove;
     [SerializeField] Fire fire;
     [SerializeField] BulletSwap bulletSwap;
     [SerializeField] GameObject canvas;
