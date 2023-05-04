@@ -8,7 +8,7 @@ public class TutoIntro : MonoBehaviour
     public static TutoIntro instance;
 
     [Header("오브젝트")]
-    [SerializeField] TPlayerMove playerMove;
+    [SerializeField] PlayerMove playerMove;
     [SerializeField] Fire fire;
     [SerializeField] BulletSwap bulletSwap;
     [SerializeField] GameObject canvas;
@@ -17,7 +17,6 @@ public class TutoIntro : MonoBehaviour
 
     [Header("카메라")]
     [SerializeField] GameObject PlayerCamera;
-    [SerializeField] GameObject SlimeCamera;
 
     private void Awake()
     {
@@ -36,18 +35,14 @@ public class TutoIntro : MonoBehaviour
             q.SetActive(false);
         }
         canvas.SetActive(false);
-        PlayerCamera.SetActive(false);
-        SlimeCamera.SetActive(true);
         converSationCanvas.SetActive(false);
+        PlayerCamera.GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = 0;
+        PlayerCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = 0;
     }
 
     public void TutoStart()
     {
         canvas.SetActive(true);
-        PlayerCamera.SetActive(true);
-        SlimeCamera.SetActive(false);
-        PlayerCamera.GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = 0;
-        PlayerCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = 0;
         StartCoroutine(Delay());
     }
 
@@ -67,6 +62,6 @@ public class TutoIntro : MonoBehaviour
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(2f);
-        converSationCanvas.SetActive(true) ;
+        converSationCanvas.SetActive(true);
     }
 }
