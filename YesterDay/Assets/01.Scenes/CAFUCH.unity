@@ -280,6 +280,7 @@ MonoBehaviour:
   _states:
   - {fileID: 1399393789}
   - {fileID: 1271113878}
+  - {fileID: 1855794065}
   _playerTrm: {fileID: 737078942}
 --- !u!1 &145854518
 GameObject:
@@ -1808,12 +1809,12 @@ GameObject:
   - component: {fileID: 1855794063}
   - component: {fileID: 1855794062}
   m_Layer: 0
-  m_Name: IdleState
+  m_Name: AttackState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1855794061
 Transform:
   m_ObjectHideFlags: 0
@@ -1842,7 +1843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTrm: {fileID: 737078942}
-  distance: 0
+  distance: 2
 --- !u!114 &1855794063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1855,7 +1856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c528976dbb6d2b4d950d94f6ccdeffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextState: {fileID: 1399393789}
+  nextState: {fileID: 1855794065}
   decisionLs:
   - {fileID: 1855794062}
 --- !u!114 &1855794065
@@ -1870,8 +1871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e889b887b57a247bd4938eb50da756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: {fileID: 0}
-  transition: {fileID: 0}
+  action: {fileID: 1855794066}
+  transition: {fileID: 1855794063}
 --- !u!114 &1855794066
 MonoBehaviour:
   m_ObjectHideFlags: 0
