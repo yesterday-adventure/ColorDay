@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class AIDecision : MonoBehaviour
 {
-    public bool isReverse = false;
+    // public bool isReverse = false;
     
     public abstract bool MakeDecition();
 }

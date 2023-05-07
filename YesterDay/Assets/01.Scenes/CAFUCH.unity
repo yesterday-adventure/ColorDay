@@ -276,7 +276,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8331aa8694730d4c970244479fa19ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aiState: {fileID: 1855794065}
+  _curState: {fileID: 0}
+  _states:
+  - {fileID: 1399393789}
+  - {fileID: 1271113878}
   _playerTrm: {fileID: 737078942}
 --- !u!1 &145854518
 GameObject:
@@ -1340,6 +1343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1271113874}
   - component: {fileID: 1271113878}
+  - component: {fileID: 1271113879}
   - component: {fileID: 1271113876}
   - component: {fileID: 1271113875}
   m_Layer: 0
@@ -1348,7 +1352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1271113874
 Transform:
   m_ObjectHideFlags: 0
@@ -1376,7 +1380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b034ee193238b0940b02f2c809566932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isReverse: 0
   playerTrm: {fileID: 737078942}
   distance: 12.5
 --- !u!114 &1271113876
@@ -1392,7 +1395,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextState: {fileID: 1271113878}
-  decisionLs: []
+  decisionLs:
+  - {fileID: 1271113875}
 --- !u!114 &1271113878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,8 +1409,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e889b887b57a247bd4938eb50da756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionLs: []
-  transitionLs: []
+  action: {fileID: 1271113879}
+  transition: {fileID: 1271113876}
+--- !u!114 &1271113879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271113873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae706cc34c881d47a631b80ee22e1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1287138718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,7 +1580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c528976dbb6d2b4d950d94f6ccdeffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextState: {fileID: 1271113878}
+  nextState: {fileID: 1399393789}
   decisionLs:
   - {fileID: 1399393788}
 --- !u!114 &1399393788
@@ -1579,7 +1595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b034ee193238b0940b02f2c809566932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isReverse: 0
   playerTrm: {fileID: 737078942}
   distance: 20
 --- !u!114 &1399393789
@@ -1594,8 +1609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e889b887b57a247bd4938eb50da756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionLs: []
-  transitionLs: []
+  action: {fileID: 1399393786}
+  transition: {fileID: 1399393787}
 --- !u!1 &1462378879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,7 +1813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1855794061
 Transform:
   m_ObjectHideFlags: 0
@@ -1826,7 +1841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b034ee193238b0940b02f2c809566932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isReverse: 0
   playerTrm: {fileID: 737078942}
   distance: 0
 --- !u!114 &1855794063
@@ -1856,8 +1870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e889b887b57a247bd4938eb50da756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionLs: []
-  transitionLs: []
+  action: {fileID: 0}
+  transition: {fileID: 0}
 --- !u!114 &1855794066
 MonoBehaviour:
   m_ObjectHideFlags: 0
