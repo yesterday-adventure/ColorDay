@@ -8,7 +8,8 @@ public class DistanceDecision : AIDecision
     [SerializeField] private float distance;
     public override bool MakeDecition() { //거리 안에 있는지 체크
 
-        return Vector3.Distance(playerTrm.position, this.transform.position) < distance;
+        Debug.Log((Vector3.Distance(playerTrm.position, transform.position) < distance) + gameObject.name);
+        return Vector3.Distance(playerTrm.position, transform.position) < distance;
     }
 
     #if UNITY_EDITOR

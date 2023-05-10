@@ -21,11 +21,11 @@ public class AITransition : MonoBehaviour
 
             result = d.MakeDecition(); //거리 안에 있는지 체크
 
-            if (d.isReverse) //isReverse를 건드리는 아이가 없다!!
-                result = !result;
+            // if (d.isReverse) //isReverse를 건드리는 아이가 없다!!
+            //     result = !result;
 
-            if (result == false) 
-                break;
+            // if (result == false) 
+            //     break;
         }
 
         return result;
