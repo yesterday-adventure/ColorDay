@@ -43,18 +43,12 @@ public class TutoIntro : MonoBehaviour
 
     public void TutoStart()
     {
-<<<<<<< Updated upstream
         canvas.SetActive(true);
         PlayerCamera.SetActive(true);
         SlimeCamera.SetActive(false);
         PlayerCamera.GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = 0;
         PlayerCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = 0;
-        StartCoroutine(Delay());
-=======
-        //canvas.SetActive(true);
         converSationCanvas.SetActive(true);
-        //StartCoroutine(Delay());
->>>>>>> Stashed changes
     }
 
     public void GameStart()
@@ -69,18 +63,9 @@ public class TutoIntro : MonoBehaviour
         PlayerCamera.GetComponent<CinemachineFreeLook>().m_YAxis.m_MaxSpeed = 300;
         PlayerCamera.GetComponent<CinemachineFreeLook>().m_XAxis.m_MaxSpeed = 300;
     }
-
-<<<<<<< Updated upstream
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(2f);
         converSationCanvas.SetActive(true) ;
     }
 }
-=======
-    //IEnumerator Delay()
-    //{
-        //yield return new WaitForSeconds(0.6f);
-   // }
-}
->>>>>>> Stashed changes
