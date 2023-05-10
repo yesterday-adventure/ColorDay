@@ -15,7 +15,7 @@ public class BulletSwap : MonoBehaviour
     [SerializeField] Image middleImg;
     [SerializeField] Image rightImg;
     [SerializeField] Image leftImg;
-    private float dotweenDelay = 0f;
+    private float dotweenDelay = 1f;
 
     public int idx = 3;
     public ColorEnum colorEnum = ColorEnum.red;
@@ -36,12 +36,12 @@ public class BulletSwap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ChangeRight();
+            ChangeLeft();
             idx++;
         }
         else if (Input.GetKeyDown(KeyCode.Q))
         {
-            ChangeLeft();
+            ChangeRight();
             idx--;
             if (idx == 0)
                 idx = 3;

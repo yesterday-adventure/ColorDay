@@ -43,4 +43,10 @@ public class ColorEnemy : MonoBehaviour
                 gameObject.SetActive(false);
         }
     }
+
+    public void ChangeWhite()
+    {
+        currentColor = ColorManager.instance.ChangeWhite();
+        b.material = ColorManager.instance.GhostcolorMaterials[(int)currentColor];
+    }
 }

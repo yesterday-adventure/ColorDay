@@ -62,14 +62,16 @@ public class PlayerMove : MonoBehaviour
 
         if (controller.isGrounded)
         {
-            MoveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            MoveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
             MoveDir = transform.TransformDirection(MoveDir);
             MoveDir *= speed;
+
             // ĳ���� ����
             if (Input.GetButton("Jump"))
+            {
                 MoveDir.y = jumpSpeed;
+            }
         }
-
 
         MoveDir.y -= gravity * Time.deltaTime; //�߷� ����
 

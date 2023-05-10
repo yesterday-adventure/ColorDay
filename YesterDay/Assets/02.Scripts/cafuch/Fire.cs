@@ -29,10 +29,8 @@ public class Fire : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && canFire) //메테리얼을 바꿔주자?
         {
+            Debug.Log("thghksehla");
             GameObject obj = Instantiate(curBullet, firePos.transform.position, transform.rotation);
-            Debug.Log(transform);
-            Debug.Log(obj);
-            Debug.Log(obj.GetComponent<ColorBullet>().BulletColor);
             obj.GetComponent<ColorBullet>().BulletColor = bulletSwap.colorEnum;
             // GameObject obj = PoolManager.Instance.Pop(curBullet, firePos.transform.position, Quaternion.identity);
             MeshRenderer mesh = obj.GetComponent<MeshRenderer>();

@@ -42,7 +42,7 @@ public class StageManger : MonoBehaviour
     public void LoadScene()
     {
         Debug.Log($"{currentIndex + 1}스테이지로 이동!");
-        //SceneManager.LoadScene(sceneNames[currentIndex].name);
+        SceneManager.LoadScene(sceneNames[currentIndex].name);
     }
 
     [ContextMenu("Increase")]
@@ -51,7 +51,7 @@ public class StageManger : MonoBehaviour
         if (currentIndex >= sceneNames.Count - 1) return;
         canMove = false;
         currentIndex++;
-        _mainCam.transform.DOMoveX(sceneNames[currentIndex].transform.position.x, 1f).SetEase(Ease.Linear).OnComplete(() =>
+        _mainCam.transform.DOMoveX(sceneNames[currentIndex].transform.position.x, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             canMove = true;
         });

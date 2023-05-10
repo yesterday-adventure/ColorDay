@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3843380067855174926}
   - component: {fileID: 3843380067855174915}
   - component: {fileID: 3843380067855174913}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: G1_Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3843380068344711384}
   - component: {fileID: 3843380068344711391}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Material
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3843380068486817825}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JNTs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3843380068650726569}
   - component: {fileID: 3843380068650726570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Little_Ghost2_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3843380068820189597}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3843380069104302034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 3843380069275584006}
   - component: {fileID: 3843380069275584005}
   - component: {fileID: 3843380069275584004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FinalColor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3843380069319300344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: joint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3843380069341535366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3843380069378223923}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3843380069613220354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: joint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,7 +18,7 @@ public class PlayerSwing : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C)) 
+        if (Input.GetKeyDown(KeyCode.R)) 
         {
             anim.SetTrigger(attackHash);
         }
@@ -30,11 +30,12 @@ public class PlayerSwing : MonoBehaviour
         Collider[] cols = Physics.OverlapSphere(attackPos.position, radius, 1 << 8);
         foreach (Collider col in cols)
         {
-            ColorEnemy ce = null;
+            ColorEnemy ce;
             col.TryGetComponent<ColorEnemy>(out ce);
             if (ce != null)
             {
                 ce.currentColor = ColorEnum.white;
+                ce.ChangeWhite();
                 Debug.Log($"{col.transform.name} -> White");
             }
             else

@@ -54,6 +54,8 @@ public class TestEnemy : ColorEnemy
                 TutoThirdQuest.Instance.cnt++;
             else if (TutoFourthQuest.Instance != null && StageTuto.Instance.idx == 3)
                 TutoFourthQuest.Instance.cnt++;
+            else if(TutoFivethQuest.Instance != null && StageTuto.Instance.idx == 4)
+                TutoFivethQuest.Instance.cnt++;
         }
     }
 

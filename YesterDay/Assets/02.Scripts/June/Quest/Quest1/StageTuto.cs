@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageTuto : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class StageTuto : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI showTmp;
     [SerializeField] TextMeshProUGUI topTmp;
-    [SerializeField]public TextMeshProUGUI processTmp;
+    [SerializeField] public TextMeshProUGUI processTmp;
+    [SerializeField] GameObject endPanel;
 
     [SerializeField] string[] Txt;
     public int idx = 0;
@@ -32,11 +34,23 @@ public class StageTuto : MonoBehaviour
     {
         processTmp.text = "";
         ++idx;
-        if (idx >= Txt.Length)
-            idx--;
-        ShowText();
-        TopText();
+        if (idx > 4)
+        {
+            StartCoroutine(End());
+        }
+        else
+        {
+            ShowText();
+            TopText();
+        }
     }
     public void ShowText() => showTmp.text = Txt[idx];
     public void TopText() => topTmp.text = $"< {idx + 1} / 5 >";
+
+    IEnumerator End()
+    {
+        endPanel.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("StageSelect");
+    }
 }
