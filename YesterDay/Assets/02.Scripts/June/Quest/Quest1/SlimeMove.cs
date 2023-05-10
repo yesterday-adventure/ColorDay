@@ -6,7 +6,7 @@ using DG.Tweening;
 public class SlimeMove : MonoBehaviour
 {
     [SerializeField] GameObject player;
-
+    bool isShow = false;
     private void OnEnable()
     {
         StartCoroutine(IDoLoate());
@@ -20,7 +20,11 @@ public class SlimeMove : MonoBehaviour
         }
         else
         {
-            TutoIntro.instance.TutoStart();
+            if(!isShow)
+            {
+                TutoIntro.instance.TutoStart();
+                isShow = true;
+            }
         }
     }
 

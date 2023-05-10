@@ -36,7 +36,13 @@ public class TutoConversation : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return))
         {
             idx++;
-            Text();
+            if(idx < conversationList.Length)
+                Text();
+            else
+            {
+                WhiteMap.instance.White();
+                gameObject.SetActive(false);
+            }
         }
     }
 
