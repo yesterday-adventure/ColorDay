@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/01.Scenes/Map/09 - Dungeon 1.unity
+    guid: a66cef6ee52cbcf469a9b58c3d09fee3
+  - enabled: 1
     path: Assets/01.Scenes/SungEun_Intro.unity
     guid: b5ffe2773375abd408d42119545ec7e7
   - enabled: 1
@@ -17,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/StageSelect.unity
     guid: 0ca3f5bd1f8cd164497f35221865760e
+  - enabled: 1
+    path: Assets/01.Scenes/Map/World - Island.unity
+    guid: 7963dbfa3145c734583d75332e81cc40
   m_configObjects: {}

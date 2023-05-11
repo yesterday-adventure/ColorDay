@@ -6,6 +6,7 @@ using UnityEngine;
 public class WhiteMap : MonoBehaviour
 {
     public static WhiteMap instance;
+    [SerializeField] GameObject monsters;
     [SerializeField] CinemachineFreeLook cm;
 
     private void Awake()
@@ -64,6 +65,20 @@ public class WhiteMap : MonoBehaviour
             {
                 item.color = Color.white;
                 yield return new WaitForSeconds(1f);
+            }
+        }
+    }
+
+    public void TestWhite()
+    {
+        monsters.SetActive(true);
+        MeshRenderer[] allChildren = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer child in allChildren)
+        {
+            Material[] mat = child.materials;
+            foreach (var item in mat)
+            {
+                item.color = Color.white;
             }
         }
     }
