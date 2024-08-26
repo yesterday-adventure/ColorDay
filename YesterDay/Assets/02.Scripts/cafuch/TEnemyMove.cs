@@ -53,9 +53,6 @@ public class TEnemyMove : MonoBehaviour
                 case State.WALK:
                 {
                     if (!follow) {
-
-                        //다트윈 떡칠해서?
-                        //아잇 찾았다~ 하는 거 보여주고?ㄴ 에너미 방향을 플레이어 방향으로 돌리고?
                         follow = true; //한 번만 돌아가도록
                     }
                     //걷기 이상이라면 실행하지 않는다
